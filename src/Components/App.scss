@@ -1,0 +1,377 @@
+// color
+$color-primary: #55c57a;
+$color-primary-light: #55c57a;
+$color-primary-dark: #28b485;
+$color-grey-dark: #777777;
+$color-white: #ffffff;
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Lato", "sans-serif";
+    font-weight: 400;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 3rem;
+    box-sizing: border-box;
+}
+
+.header {
+    height: 95vh;    
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)), 
+        url(/img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
+    position: relative;
+}
+
+.header__logo-box {
+    position: absolute;
+    left: 4rem;
+    top: 4rem;
+}
+
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+}
+
+.header__logo {
+    height: 3.5rem;
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+    
+}
+
+.heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;   
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 17.4px; /* It is too specific. Just keep it as it is */
+    animation: moveInRight 2s ease-in-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    80% {
+        transform: translateX(2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    80% {
+        transform: translateX(-2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInButtom {
+    0% {
+        opacity: 0;
+        transform: translateY(10rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4.0rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+}
+
+.btn:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 .5rem 2rem rgba(0,0,0,.2);
+}
+
+.btn:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
+
+.btn--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: $color-white;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.6) scaleY(1.4);
+    opacity: 0;
+}
+
+.btn--animated {
+    animation: moveInButtom 1.5s ease-out .75s;
+    animation-fill-mode: backwards;
+}
+
+
+
+// [ Code Pen ]
+// * {
+//     margin: 0;
+//     padding: 0;
+//   }
+  
+//   // mixin vs extend vs placeholder
+//   // 1) mixin : can use parameter to manage variable
+//   // 2) extend: can use existing class or new class (cans use esting class, new classes)
+//   // 3) placeholders: (no parameter, can be used in a new class)
+  
+//   $color-primary: yellow; // This is a yellow color
+//   $color-secondary: orange;
+//   $color-tertary: pink;
+//   $color-text-dark: grey;
+//   $color-button-text: #eeeeee;
+  
+//   $width-button: 150px;
+  
+//   @mixin clearfix {
+    
+//     &::after {
+//       content: '';
+//       // outdated
+//       // overflow: auto;
+  
+//       // modern css
+//       // It prevents the one of the elements "float:right or left" 
+//       // from gettting out of the defined box  
+//       clear: both;
+//       display: table;
+//     }
+    
+//   }
+  
+//   // Use args to change value 
+//   @mixin style-link-text($color) {
+//     text-decoration: none;
+//     text-transform: uppercase;
+//     color: $color
+//   }
+  
+//   @function divide($a, $b) {
+//     @return $a/$b;
+//   }
+  
+//   /* Comment */
+//   nav {
+//     // Using function: must put unit like the one below.
+//     margin: divide(60, 2) * 1px;
+//     // margin: 30px;
+//     background-color: $color-primary;
+    
+//     // 1)   
+//   //   &::after {
+//   //     content: '';
+//   //     // outdated
+//   //     // overflow: auto;
+  
+//   //     // modern css
+//   //     // It prevents the one of the elements "float:right or left" 
+//   //     // from gettting out of the defined box  
+//   //     clear: both;
+//   //     display: table;
+//   //   }
+  
+//     // Inclues an object   
+//     @include clearfix;
+  
+//   }
+  
+//   //  1)
+//   // .clearfix::after {
+//   //   content: '';
+//   //   // outdated
+//   //   // overflow: auto;
+    
+//   //   // modern css
+//   //   // It prevents the one of the elements "float:right or left" 
+//   //   // from gettting out of the defined box  
+//   //   clear: both;
+//   //   display: table;
+//   // }
+  
+//   .navigation {
+//     list-style: none;
+//     float: left;
+    
+//     li {
+//       display: inline-block;
+//       margin-left: 30px;
+      
+//       // .navigation li:firstChild
+//       // 2) It can replace 1) with 2) by using "&"
+//       // & means a selector at this point, "li"    
+//       &:first-child {
+//         margin: 0px;
+//       }
+//       // .navigation li a
+//       a:link {
+//         // text-decoration: none;
+//         // text-transform: uppercase;
+//         // color: $color-text-dark;
+        
+//         @include style-link-text($color-text-dark);
+//       }
+//     }
+    
+//     // 1)   
+//     // li:first-child {
+//     //   margin: 0;
+//     // }
+//   }
+  
+//   %btn-placeholder {
+//       display: inline-block;
+//       padding: 10px;
+//       border-radius: 100px;
+//       text-align: center;
+//       width: $width-button;
+//   }
+  
+//   .buttons {
+//     float: right;
+    
+//     // class must have "."  
+//     .btn-main:link,
+//     .btn-hot:link {
+//       @extend %btn-placeholder;
+//       @include style-link-text($color-button-text);
+//     }
+    
+//     .btn-main {
+//       &:link {
+//         background-color: $color-secondary;
+//       }
+      
+//       &:hover {
+//         // darken from the current color      
+//         // background-color: $color-tertary;
+        
+//         // darken from the current color. Make it darker 15%
+//         // Just remind that the function is able to tak in argument      
+//         background-color: darken($color-secondary, 15%);
+//       }
+      
+//     }
+    
+//     .btn-hot {
+//       &:link {
+//         background-color: $color-tertary;
+//       }
+      
+//       &:hover {
+//         // darken from the current color      
+//         // background-color: $color-tertary;
+        
+//         // darken from the current color. Make it darker 15%
+//         background-color: lighten($color-tertary, 5%);
+//       }
+      
+//     }
+//   }
+  
+//   // .btn-main:link,
+//   // .btn-hot:link {
+//   //     display: inline-block;
+//   //     text-decoration: none;
+//   //     text-transform: uppercase;
+      
+//   //     padding: 10px;
+      
+//   //   }
+
+
+
+
+
+// @import '~bulma/sass/utilities/_all.sass';
+// @import '~bulma/sass/base/_all.sass';
+// @import 'bulma/sass/elements/button.sass';
+// @import 'bulma/sass/layout/section.sass';
+
+// @import '../Sass/variables.scss';
+
+// .App {
+//     font-family: sans-serif;
+//     text-align: center;
+// }
+
+// h1, h2 {
+//     font-size: 20px;
+//     position: relative;
+//     color: $primaryColor;
+// }
