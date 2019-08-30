@@ -1,89 +1,106 @@
+// abastract must be first
+@import '../../../Sass/abstracts/functions';
+@import '../../../Sass/abstracts/mixins';
+@import '../../../Sass/abstracts/variables';
+
+@import '../../../Sass/base/animation';
+@import '../../../Sass/base/base';
+@import '../../../Sass/base/typography';
+@import '../../../Sass/base/utilities';
+
+@import '../../../Sass/Components/button';
+@import '../../../Sass/layout/header';
+@import '../../../Sass/pages/home';
+
+
+// Refactoring
 // color
-$color-primary: #55c57a;
-$color-primary-light: #55c57a;
-$color-primary-dark: #28b485;
-$color-grey-dark: #777777;
-$color-white: #ffffff;
-$color-black: #000000;
+// $color-primary: #55c57a;
+// $color-primary-light: #55c57a;
+// $color-primary-dark: #28b485;
+// $color-grey-dark: #777777;
+// $color-white: #ffffff;
+// $color-black: #000000;
 
-*,
-*::after,
-*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-}
+// Refactoring
+// *,
+// *::after,
+// *::before {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: inherit;
+// }
 
-html {
-    font-size: 62.5%;
-}
+// html {
+//     font-size: 62.5%;
+// }
 
-body {
-    font-family: "Lato", "sans-serif";
-    font-weight: 400;
-    line-height: 1.7;
-    color: $color-grey-dark;
-    padding: 3rem;
-    box-sizing: border-box;
-}
+// body {
+//     font-family: "Lato", "sans-serif";
+//     font-weight: 400;
+//     line-height: 1.7;
+//     color: $color-grey-dark;
+//     padding: 3rem;
+//     box-sizing: border-box;
+// }
 
-.header {
-    height: 95vh;    
-    background-image: linear-gradient(
-        to right bottom,
-        rgba($color-primary-light, 0.8),
-        rgba($color-primary-dark, 0.8)), 
-        url(/img/hero.jpg);
-    background-size: cover;
-    background-position: top;
-    clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
-    position: relative;
+// .header {
+//     height: 95vh;    
+//     background-image: linear-gradient(
+//         to right bottom,
+//         rgba($color-primary-light, 0.8),
+//         rgba($color-primary-dark, 0.8)), 
+//         url(/img/hero.jpg);
+//     background-size: cover;
+//     background-position: top;
+//     clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
+//     position: relative;
 
-    // we can use .header__logo-box 
-    &__logo-box {
-        position: absolute;
-        left: 4rem;
-        top: 4rem;
-    }
+//     // we can use .header__logo-box 
+//     &__logo-box {
+//         position: absolute;
+//         left: 4rem;
+//         top: 4rem;
+//     }
 
-    &__text-box {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+//     &__text-box {
+//         position: absolute;
+//         top: 40%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//         text-align: center;
         
-    }
+//     }
     
-    &__logo {
-        height: 3.5rem;
-    }
+//     &__logo {
+//         height: 3.5rem;
+//     }
 
-    .heading-primary {
-        color: $color-white;
-        text-transform: uppercase;
-        backface-visibility: hidden;
-        margin-bottom: 6rem;
+//     .heading-primary {
+//         color: $color-white;
+//         text-transform: uppercase;
+//         backface-visibility: hidden;
+//         margin-bottom: 6rem;
     
-        &--main {
-            display: block;
-            font-size: 6rem;
-            font-weight: 400;
-            letter-spacing: 3.5rem;
-            animation-name: moveInLeft;
-            animation-duration: 2s;
-            animation-timing-function: ease-out;   
-        }
+//         &--main {
+//             display: block;
+//             font-size: 6rem;
+//             font-weight: 400;
+//             letter-spacing: 3.5rem;
+//             animation-name: moveInLeft;
+//             animation-duration: 2s;
+//             animation-timing-function: ease-out;   
+//         }
         
-        &--sub {
-            display: block;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 17.4px; /* It is too specific. Just keep it as it is */
-            animation: moveInRight 2s ease-in-out;
-        }
-    }
-}
+//         &--sub {
+//             display: block;
+//             font-size: 2rem;
+//             font-weight: 700;
+//             letter-spacing: 17.4px; /* It is too specific. Just keep it as it is */
+//             animation: moveInRight 2s ease-in-out;
+//         }
+//     }
+// }
 
 // 1) it moved above
 // .header__logo-box {
@@ -156,104 +173,104 @@ body {
 
 
 
-@keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-    80% {
-        transform: translateX(2rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+// @keyframes moveInLeft {
+//     0% {
+//         opacity: 0;
+//         transform: translateX(-10rem);
+//     }
+//     80% {
+//         transform: translateX(2rem);
+//     }
+//     100% {
+//         opacity: 1;
+//         transform: translateX(0);
+//     }
+// }
 
-@keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-    80% {
-        transform: translateX(-2rem);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+// @keyframes moveInRight {
+//     0% {
+//         opacity: 0;
+//         transform: translateX(10rem);
+//     }
+//     80% {
+//         transform: translateX(-2rem);
+//     }
+//     100% {
+//         opacity: 1;
+//         transform: translateX(0);
+//     }
+// }
 
-@keyframes moveInButtom {
-    0% {
-        opacity: 0;
-        transform: translateY(10rem);
-    }
+// @keyframes moveInButtom {
+//     0% {
+//         opacity: 0;
+//         transform: translateY(10rem);
+//     }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+//     100% {
+//         opacity: 1;
+//         transform: translateY(0);
+//     }
+// }
 
-.btn {
+// .btn {
 
-    &:link,
-    &:visited {
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 1.5rem 4.0rem;
-        display: inline-block;
-        border-radius: 10rem;
-        transition: all .2s;
-        position: relative;
-        font-size: 1.6rem;
-    }
+//     &:link,
+//     &:visited {
+//         text-transform: uppercase;
+//         text-decoration: none;
+//         padding: 1.5rem 4.0rem;
+//         display: inline-block;
+//         border-radius: 10rem;
+//         transition: all .2s;
+//         position: relative;
+//         font-size: 1.6rem;
+//     }
 
-    &:hover {
-        transform: translateY(-0.3rem);
-        box-shadow: 0 .5rem 2rem rgba($color-black,.2);
+//     &:hover {
+//         transform: translateY(-0.3rem);
+//         box-shadow: 0 .5rem 2rem rgba($color-black,.2);
 
-        &::after {
-            transform: scaleX(1.6) scaleY(1.4);
-            opacity: 0;
-        }
-    }
+//         &::after {
+//             transform: scaleX(1.6) scaleY(1.4);
+//             opacity: 0;
+//         }
+//     }
     
-    &:active {
-        transform: translateY(-0.1rem);
-        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
-    }
+//     &:active {
+//         transform: translateY(-0.1rem);
+//         box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+//     }
 
-    &::after {
-        content: "";
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        border-radius: 10rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: all .4s;
-    }
+//     &::after {
+//         content: "";
+//         display: inline-block;
+//         height: 100%;
+//         width: 100%;
+//         border-radius: 10rem;
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         z-index: -1;
+//         transition: all .4s;
+//     }
 
-    &--white {
-        background-color: $color-white;
-        color: $color-grey-dark;
+//     &--white {
+//         background-color: $color-white;
+//         color: $color-grey-dark;
 
-        &::after {
-            background-color: $color-white;
-        }
+//         &::after {
+//             background-color: $color-white;
+//         }
     
-    }
+//     }
 
-    &--animated {
-        animation: moveInButtom 1.5s ease-out .75s;
-        animation-fill-mode: backwards;
-    }
+//     &--animated {
+//         animation: moveInButtom 1.5s ease-out .75s;
+//         animation-fill-mode: backwards;
+//     }
     
-}
+// }
 
 
 

@@ -1,0 +1,9 @@
+@mixin clearfix {
+    // we can put this mixin anywhere by using "&"
+    &::after {
+        content: "";
+        // starndard version of clearfix
+        display: table;
+        clear: both;
+    }
+}
