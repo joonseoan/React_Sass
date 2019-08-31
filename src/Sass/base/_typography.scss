@@ -1,3 +1,5 @@
+@import '../abstracts/variables';
+
 body {
     font-family: "Lato", "sans-serif";
     font-weight: 400;
@@ -30,4 +32,43 @@ body {
         letter-spacing: 17.4px; /* It is too specific. Just keep it as it is */
         animation: moveInRight 2s ease-in-out;
     }
+}
+
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    // font-weight number: controk bolder and lighter
+    font-weight: 700;
+
+    // block -> inline block to fit the background length into text length
+    display: inline-block;
+    // Despite the definition of inline-block, "width" sice can be controlled.  
+    // width: 70%;
+    // text gradient
+    // setup background image first
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    
+    // making background color get into the texts
+    // for safari
+    --webkit-background-clip: text;
+    // for any other  browser
+    background-clip: text;
+
+    // Then the background text color should be transparent to show
+    // gradient color.
+    color: transparent;
+    
+    letter-spacing: 0.2rem;
+    transition: all .2s;
+    // for smooth transition for children's animation
+    &:hover {
+        // skewY: decline
+        // skeyX: text wider
+        // scale: text bigger or smaller
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        
+        // text shadow
+        text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+    }
+
 }

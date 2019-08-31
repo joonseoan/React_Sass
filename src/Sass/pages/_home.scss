@@ -1,0 +1,13 @@
+@import '../abstracts/variables';
+
+.section-about {
+    background-color: $color-grey-light;
+    padding: 25rem 0;
+    // vh in on the basis of view port
+    // view port 100vh is top
+    // view port 95vh is 5vh distance from top
+    // viewport 70vh is 30vh distance from top
+    // 20 vh is 80vh distance from top
+    // -20vh is moving to top from current vh position
+    margin-top: -20vh;
+}
