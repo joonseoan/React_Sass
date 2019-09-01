@@ -7,7 +7,7 @@
     // max-width: when the space is engough, it will be '114red'
     //      but if the space is not enough, it will be adaptive.
     max-width: $color-width;
-    background-color: #eeeeee;
+    // background-color: #eeeeee;
     // "auto" applies for "block" like <div> <section> and etc
     margin: 0 auto;
 
@@ -15,6 +15,18 @@
     // apply margin-buttom above except for the last-child
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;        
+    }
+
+    [class^="col-"] {
+        // background-color: orangered;
+        float: left;
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal; 
+        }
+    }
+
+    .col-1-of-2 {
+        width: calc((100% - #{ $gutter-horizontal }) / 2);
     }
 
     // 1)
@@ -46,29 +58,29 @@
     // that includes value with "col-"
     // [class*="col-"] {}
 
-    [class^="col-"] {
-        background-color: orangered;
-        float: left;
-        &:not(:last-child) {
-            margin-right: $gutter-horizontal; 
-        }
-    }
+    // [class^="col-"] {
+    //     background-color: orangered;
+    //     float: left;
+    //     &:not(:last-child) {
+    //         margin-right: $gutter-horizontal; 
+    //     }
+    // }
 
-    .col-1-of-2 {
+    // .col-1-of-2 {
 
-        width: calc((100% - #{ $gutter-horizontal }) / 2);
-        // use grabbing [] attribute above 
-        // background-color: orangered;
+    //     width: calc((100% - #{ $gutter-horizontal }) / 2);
+    //     // use grabbing [] attribute above 
+    //     // background-color: orangered;
         
-        // // will generage 0px height
-        // // In order to fix this, we need to use clearfix! 
-        // float: left;
+    //     // // will generage 0px height
+    //     // // In order to fix this, we need to use clearfix! 
+    //     // float: left;
 
-        // &:not(:last-child) {
-        //     margin-right: $gutter-horizontal; 
-        // }
+    //     // &:not(:last-child) {
+    //     //     margin-right: $gutter-horizontal; 
+    //     // }
 
-    }
+    // }
 
     .col-1-of-3 {
         width: calc((100% - 2 * #{ $gutter-horizontal }) / 3);

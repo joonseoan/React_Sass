@@ -1,0 +1,53 @@
+.composition {
+    
+    position: relative;
+
+    &__photo {
+        // parent size's 50%
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        border-radius: 2px;
+        position: absolute;
+        z-index: 1;
+        transition: all .2s;
+        
+        // outline-offset must be se in the parent class
+        outline-offset: 2rem;
+
+        // position setup for each photo
+        // Just remember that --p1, --p2, --p3 are in same elements as __photo
+        // Therefore position absolute can be controlled over here.
+        &--p1 {
+            left: 0;
+            top: -2rem;
+        }
+
+        &--p2 {
+            // start from right side
+            right: 0;
+            top: 2rem;
+        }
+
+        &--p3 {
+            left: 20%;
+            top: 10rem;
+        }
+
+        // each image has same hover value
+        &:hover {
+            // outline offset must be set in the parent / original element
+            outline: 1.5rem solid $color-primary;
+            // bigger picture and move up a little bit
+            transform: scale(1.05) translateY(-.5rem);
+            // y shadow bigger and color is darker
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 2;
+        }
+
+    }
+    // entire composition's children elements shrinks
+    //      except for the currently hovering element
+    &:hover &__photo:not(:hover) {
+        transform: scale(0.95);
+    }
+}
