@@ -1,0 +1,60 @@
+@import '../../../Sass/abstracts/variables';
+
+
+.section-tours {
+    background-color: $color-grey-light;
+    padding: 25rem 0 50rem 0;
+    margin-top: -12rem;
+    
+
+    .card {
+
+        /* 
+            The perspective property is used to give a 3D-positioned element some perspective.
+            The perspective property defines how far the object is away from the user. So, a lower value will result in a more intensive 3D effect than a higher value.
+            When defining the perspective property for an element, it is the CHILD elements that get the perspective view, NOT the element itself.     
+        */
+        perspective: 150rem;
+        // working in firefox browser
+        -moz-perspective: 150rem;
+        // background-color: orangered;
+        // height: 50rem;
+        // transition: all .8s;
+        position: relative;
+
+        &__side {
+            background-color: orangered;
+            color: #ffffff;
+            font-size: 4rem;
+            height: 50rem;
+            transition: all .8s;
+
+            /* same postion as the front is */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            backface-visibility: hidden;
+
+            &--front {
+                background-color: orangered;
+            }
+
+            &--back {
+                background-color: green;
+                transform: rotateY(180deg);
+            }
+        }
+    }
+
+    // when card rotates, card_side also rotates
+    .card:hover .card__side--front {
+        transform: rotateY(180deg);
+    }
+
+    .card:hover .card__side--back {
+        transform: rotateY(0deg);
+    }
+
+
+}

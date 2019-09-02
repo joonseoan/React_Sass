@@ -1,11 +1,13 @@
 import React from 'react';
 
-import { Section } from './Common';
+import { SectionAbout, SectionFeatures, SectionTours } from './Common';
 
 export default props => {
     return(
         <main>
-            <Section />
+            <SectionAbout />
+            <SectionFeatures />
+            <SectionTours />
         </main>
     );
 }

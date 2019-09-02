@@ -1,0 +1,7 @@
+1. visit : https://freebiesbug.com/psd-freebies/linea-line-icon-set-psd-ai-webfont/
+2. Download icons and uncompressed it.
+3. go to linea-iconfont foler in the downloaded folder
+4. copy fonts folder and style.css file
+5. make a css folder inside of public folder in the project and paste them at that css folder
+6. change style.css into "icon-fonts.css"
+7. In the index.html, put "<link rel="stylesheet" href="css/icon-fonts.css" />"
