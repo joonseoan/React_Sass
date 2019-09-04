@@ -6,7 +6,6 @@
     padding: 25rem 0 50rem 0;
     margin-top: -12rem;
     
-
     .card {
 
         /* 
@@ -21,40 +20,61 @@
         // height: 50rem;
         // transition: all .8s;
         position: relative;
+        // position "absolute" below destroys height in card
+        //  therefore we need to define same height over here.
+        // It is like float that destroys height!!!
+        height: 50rem;
 
         &__side {
-            background-color: orangered;
+            // background-color: orangered;
             color: #ffffff;
             font-size: 4rem;
             height: 50rem;
-            transition: all .8s;
+            transition: all .8s ease;
 
             /* same postion as the front is */
             position: absolute;
             top: 0;
             left: 0;
+            // make the height 100% as well
             width: 100%;
+
+            /* 
+                The backface-visibility property defines whether or not the back face of an element should be visible when facing the user.
+                The back face of an element is a mirror image of the front face being displayed.
+                This property is useful when an element is rotated. It lets you choose if the user should see the back face or not.
+            */
             backface-visibility: hidden;
 
+            border-radius: 3px;
+            box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+            // sudo is not used because it does not control the children
             &--front {
-                background-color: orangered;
+                background-color: $color-white;
             }
 
+            // it is flipped already
+            //  threfore, it is not displayed
             &--back {
-                background-color: green;
+                // background-color: green;
                 transform: rotateY(180deg);
+                
+                &-1 {
+                    background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+                }
             }
         }
     }
 
     // when card rotates, card_side also rotates
+    // close side--front
     .card:hover .card__side--front {
         transform: rotateY(180deg);
     }
-
+    // open side--back
     .card:hover .card__side--back {
         transform: rotateY(0deg);
     }
-
 
 }

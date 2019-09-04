@@ -13,10 +13,10 @@ const SectionTours = props => {
                 <div className="col-1-of-3">
                     <div className="card">
                         {/* Eelement */}
-                        <div className="card__side card__side--front">
+                        <div className="card__side card__side--front card__side--front-1">
                             Front
                         </div>
-                        <div className="card__side card__side--back">
+                        <div className="card__side card__side--back card__side--back-1">
                             Back
                         </div>
                     </div>
