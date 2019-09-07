@@ -2,7 +2,7 @@
 
 
 .section-tours {
-    background-color: $color-grey-light;
+    background-color: $color-grey-light-1;
     padding: 25rem 0 50rem 0;
     margin-top: -12rem;
     
@@ -24,17 +24,18 @@
         // position "absolute" below destroys height in card
         //  therefore we need to define same height over here.
         // It is like float that destroys height!!!
-        height: 50rem;
+        height: 52rem;
 
         &__side {
             // background-color: orangered;
-            color: #ffffff;
+            // color: #ffffff;
             font-size: 4rem;
-            height: 50rem;
+            height: 52rem;
             transition: all .8s ease;
 
             /* same postion as the front is */
             position: absolute;
+            // it is same as the original place where position: relative above
             top: 0;
             left: 0;
             // make the height 100% as well
@@ -72,40 +73,107 @@
         }
 
             // Styling
-            &__picture {
-                background-size: cover;
+        &__picture {
+            background-size: cover;
 
 
-                height: 23rem;
-                // not working in IE / MS Edge
-                // a lot of options:screen, soft-light and so on....
-                background-blend-mode: screen;
+            height: 23rem;
+            // not working in IE / MS Edge
+            // a lot of options:screen, soft-light and so on....
+            background-blend-mode: screen;
 
-                // cutting the picture
-                -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-                clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            // cutting the picture
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
-                &--1 {
-                    // It is a background. No contnets.
-                    // Therefore, we need to define "height" above
+            &--1 {
+                // It is a background. No contnets.
+                // Therefore, we need to define "height" above
 
-                    // multiple background images.
-                    // z-index: 0 -> gradient
-                    // z-index:-1 -> image
+                // multiple background images.
+                // z-index: 0 -> gradient
+                // z-index:-1 -> image
 
-                    // picture will destroy 
-                    background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
-                    url(/img/nat-5.jpg);
-                }
-
-                &--2 {
-                    background-image: url(/img/nat-5.jpg);
-                }
-
-                &--3 {
-                    background-image: url(/img/nat-5.jpg);
-                }
+                // picture will destroy 
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+                url(/img/nat-5.jpg);
             }
+
+            &--2 {
+                background-image: url(/img/nat-5.jpg);
+            }
+
+            &--3 {
+                background-image: url(/img/nat-5.jpg);
+            }
+        }
+
+        &__heading {
+            font-size: 2.8rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            text-align: right;
+            color: $color-white;
+            // it is followed by position at the parent, "card"
+            position: absolute;
+            
+            // Without the top/right below, it is displayed "z-index-1"
+            // which means no space for this
+            top: 12rem;
+            right: 2rem;
+            // to make span: inline two lines
+            width: 65%;
+        }
+
+        // This is not a child of &__heading
+        // It is a fully new element
+
+        // card__heading-span card__heading-span--1
+        &__heading-span {
+            // To make two line partly overlapped
+            // Remember it is a still inline element
+            //  Therefore A of SEA and E of EXPLORER do not have any spare space
+            padding: 1rem 1.5rem;
+            // Make spare spaces like padding.
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+
+            &--1 {
+                
+                background-image: linear-gradient(to right bottom, 
+                rgba($color-secondary-light, .85), 
+                rgba($color-secondary-dark, .85));
+            }
+        }
+
+        &__details {
+            
+            padding: 3rem;
+
+            ul {
+                list-style: none;
+                width: 80%;
+
+                // Please remember over and over
+                // To centeralize the block element of block
+                //  use margin
+                margin: 0 auto;
+                // block element
+                li {
+                    text-align: center;
+                    font-size: 1.5rem;
+                    padding: 1rem;
+
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $color-grey-light-2;
+                        
+                    }
+
+                }
+
+            }
+
+        }
     }
 
     // when card rotates, card_side also rotates
