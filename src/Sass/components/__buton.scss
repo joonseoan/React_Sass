@@ -1,0 +1,96 @@
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4.0rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+        font-size: $default-font-size;
+    }
+
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 .5rem 2rem rgba($color-black,.2);
+
+        &::after {
+            transform: scaleX(1.6) scaleY(1.4);
+            opacity: 0;
+        }
+    }
+    
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+
+    &--animated {
+        animation: moveInButtom 1.5s ease-out .75s;
+        animation-fill-mode: backwards;
+    }  
+}
+
+// btn and btn-text are fully different class
+.btn-text {
+
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        // Do not use rem when responsive is not required
+        padding: 3px;
+        transition: all .2s;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black,.15);
+        // moving up little bit
+        transform: translateY(-2px);
+    }
+
+    &:active{
+        // weaker box shadow
+        box-shadow: 0 .5rem 1rem rgba($color-black,.15);
+        // back to original position
+        transform: translateY(0);
+    }
+
+}

@@ -1,0 +1,157 @@
+@import '../../../Sass/abstracts/variables';
+@import '../../../Sass/abstracts/mixins';
+// @import '../../../Sass/base/utilities';
+@import '../../../Sass/layout/grid';
+
+
+.section-stories {
+    padding: 10rem 0;
+    // background-color: $color-grey-light-1;
+    position: relative;
+    // z-index: 0;
+    
+    .bg-video {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: .15;
+        height: 100%;
+        overflow: hidden;
+        
+        &__content {
+            width: 100%; // larger than section's width => fit to section's width
+            height: 100%; // smaller than section's heigt => fit to section's height
+            // to fit to width and height above without no affection on ratio
+            object-fit: cover;
+
+            // video ratio is destroyed
+            // object-fit: fill;
+        }
+    }
+
+    .story {
+        width: 75%;
+        margin: 0 auto;
+        box-shadow: 0 3rem 6rem rgba($color-black, .1);
+        // All children elements are goigng to be transparent.
+        // opacity: .75%; // ===> xxx
+        
+        // in order only to make the background transparent
+        //      use rgba
+        background-color: rgba($color-white, .6);
+        border-radius: 3px;
+        padding: 6rem;
+        // to more space for float and outshape
+        padding-left: 9rem;
+        font-size: $default-font-size;
+        
+        // 1)
+        // -webkit-clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+        // clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+
+        // 2)
+
+        transform: skewX(-12deg);
+        @include clearfix;
+
+        // Bear in mind that direct children only
+        // However, it is not working because the child, __shape
+        //  has transform already. Two "transform cannot be work together"
+        
+        // __text is working because its transfor does not exist.
+        
+        // Consquently, we should apply the transform to each "direct" child
+
+        // & > * {
+        //     transform: skewX(12deg);
+        // }
+
+        &__shape {
+            width: 15rem;
+            // must use overflow to prevent the picture sticks out of the "widh"
+            overflow: hidden;
+            height: 15rem;
+            float: left;
+            // float: right;
+
+            // shape-outside : defines a flow of the outside of the object!
+            // share of propert
+            // We can use ploygon, circle, call, cell, and so on
+            // 50%: readius
+            // at 50% 50%: position -> vertically and horizontall central
+            // 1) condition 1: must use webkit as well
+            // 2) Condition 2: it must have dimensions (height and width)
+            //      and float to work shape-outside.
+
+            -webkit-shape-outside: circle(50% at 50% 50%);         
+            shape-outside: circle(50% at 50% 50%);
+
+            // Then we can use clip path
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+
+            // When float exists, we should use transform istead of margin
+            transform: translateX(-3rem) skewX(12deg);
+            
+            position: relative;
+
+        }
+
+        &__img {
+            // in the circle share, we need both height and width 
+            height: 100%;
+            width: 100%;
+            // larger than than 1.0
+            transform: scale(1.4);
+            transition: all .5s ease;
+            // when two objects are overlayed
+            // in order to prevent the weried error
+            backface-visibility: hidden;
+
+
+        }
+
+        &__text {
+            transform: skewX(12deg);
+        }
+
+        &__caption {
+            // Because of float above
+            width: 90%;
+            position: absolute;
+            color: $color-white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 30%);
+            // Because of float
+            text-align: center;
+            font-size: 1.7rem;
+            text-transform: uppercase;
+            // fully transparent
+            opacity: 0;
+            transition: all .5s ease;
+            backface-visibility: hidden;
+        }
+
+        // &:hover ==> position of mouse
+        // .story__caption : position that runs the functions below.
+        &:hover .story__caption {
+            opacity: 1;
+            transform: translate(-50%, -50%);  
+        }
+
+        &:hover .story__img {
+
+            // can not be smaller than 100% 
+            //  because image smaller than __shape!!
+            transform: scale(1.0);
+            // making blur and darker (less than 100%)
+            filter: blur(3px) brightness(80%);
+        }
+
+    }
+
+}
+

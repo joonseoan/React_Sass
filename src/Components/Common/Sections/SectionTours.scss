@@ -1,9 +1,9 @@
 @import '../../../Sass/abstracts/variables';
-
+@import '../../../Sass/components/_buton';
 
 .section-tours {
     background-color: $color-grey-light-1;
-    padding: 25rem 0 50rem 0;
+    padding: 25rem 0 15rem 0;
     margin-top: -12rem;
     
     // Functionalities
@@ -51,7 +51,7 @@
             border-radius: 3px;
             // background picture in "&__pcitre" will destroy the radius.
             // In order to prevent destroy, we need to define overflow!!!
-            overflow: hidden;
+            // overflow: hidden;
             box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
             // sudo is not used because it does not control the children
@@ -67,6 +67,14 @@
                 
                 &-1 {
                     background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+                }
+
+                &-2 {
+                    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+                }
+
+                &-3 {
+                    background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
                 }
             }
 
@@ -85,6 +93,12 @@
             // cutting the picture
             -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            
+            // when uses pictures ofr background images
+            //      need to manually define the radius value
+            //      that are matched with the property of the parent.
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
 
             &--1 {
                 // It is a background. No contnets.
@@ -98,13 +112,15 @@
                 background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
                 url(/img/nat-5.jpg);
             }
-
+            
             &--2 {
-                background-image: url(/img/nat-5.jpg);
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),
+                url(/img/nat-6.jpg);
             }
 
             &--3 {
-                background-image: url(/img/nat-5.jpg);
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark),
+                url(/img/nat-7.jpg);
             }
         }
 
@@ -144,6 +160,21 @@
                 rgba($color-secondary-light, .85), 
                 rgba($color-secondary-dark, .85));
             }
+
+            
+            &--2 {
+                
+                background-image: linear-gradient(to right bottom, 
+                rgba($color-primary-light, .85), 
+                rgba($color-primary-dark, .85));
+            }
+
+            &--3 {
+                
+                background-image: linear-gradient(to right bottom, 
+                rgba($color-tertiary-light, .85), 
+                rgba($color-tertiary-dark, .85));
+            }
         }
 
         &__details {
@@ -174,8 +205,41 @@
             }
 
         }
-    }
 
+        &__cta {
+            // when we need to move a box itself
+            //  it does not work with margin auto!!! : block type only
+            // margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            // inheritance!
+            text-align: center;
+
+        }
+
+        &__price-box {
+            // text-align: center;
+            margin-bottom: 8rem;
+            color: $color-white;
+
+        }
+
+        &__price-only {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+
+        }
+
+        &__price-value {
+            font-size: 6rem;
+            font-weight: 100;
+        }
+    
+    }       
+    
     // when card rotates, card_side also rotates
     // close side--front
     .card:hover .card__side--front {
