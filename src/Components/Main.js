@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SectionAbout, SectionFeatures, SectionTours, SectionStories } from './Common';
+import { SectionAbout, SectionFeatures, SectionTours, SectionStories, SectionBooking } from './Common';
 
 export default props => {
     return(
@@ -9,6 +9,7 @@ export default props => {
             <SectionFeatures />
             <SectionTours />
             <SectionStories />
+            <SectionBooking />
         </main>
     );
 }

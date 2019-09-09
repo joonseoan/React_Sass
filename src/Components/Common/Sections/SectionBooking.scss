@@ -1,0 +1,68 @@
+@import '../../../Sass//abstracts/variables';
+@import '../../../Sass/components/_form';
+
+.section-booking {
+    padding: 15rem 0;
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+    
+    .booking {
+
+        /* 
+             We used background-image like the one below
+             background-image: linear-gradient(
+                to right bottom,
+                rgba($color-primary-light, 0.8),
+                rgba($color-primary-dark, 0.8)), 
+                url(/img/hero.jpg);
+        
+        */
+        // Instead of above we can use the one below
+        // linear-gradient(rgba($color-white, .4), orange) : from (white) top to bottom (orange)
+        // 90 / 105deg: from left to right
+        // 135 deg: from top-left to bottom-right
+        // 225 deg: from top-right to bottom-left
+        // background-image: linear-gradient(225deg, rgba($color-white, .4), orange), url(/img/nat-10.jpg);
+        // [ Important!! ] Gradient is always the first and the second args. the third art is for solid!!!!
+
+        // Solid gradient (Third argument)
+      
+        // the first 0%: the start point for gradeitn
+        // rgba($color-white, .9) : the second arg--> the end of gradient
+        // orange 50%: the start point of solid orange
+        // 50% : start point (from 50% to end, it is a full oange color
+        /* 
+            background-image: linear-gradient(105deg, 
+            rgba($color-white, .9) 0%,
+            rgba($color-white, .9) 50%,
+            orange 50%), 
+            url(/img/nat-10.jpg); 
+        */
+
+        background-image: linear-gradient(105deg, 
+        rgba($color-white, .9) 0%,
+        rgba($color-white, .9) 50%,
+        transparent 50%), 
+        url(/img/nat-10.jpg);
+
+
+        // Without background-size, a part of picture will be displayed
+        // background-size: cover; is same as background-size: 100%;
+        background-size: cover;
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+        
+        // [ Important ]
+        // because <div classname="row"> exists as a parent element,
+        // it just shows a part of picture.
+        // height: 100%;
+        height: 50rem;
+
+        &__form {
+            padding: 6rem;
+            width: 50%;
+        }
+
+    }
+
+
+}

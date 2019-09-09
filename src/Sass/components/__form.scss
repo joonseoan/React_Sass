@@ -1,0 +1,144 @@
+@import './_buton';
+
+.form {
+    &__group {
+
+        // __group's child!!
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    // control input cell itself
+    &__input {
+        font-size: 1.5rem;
+        // [Important]!!!
+        // input always has the inheritance from default font-family
+        //      not from body!!!
+        // Therefore, we need to define Taro.
+        // Here instead, we can use "inherit" instead of Taro
+        font-family: inherit;
+        // same as above for font-color
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white, .5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        // keep in mind that label and input are inline
+        display: block;
+        transition: all .3s ease;
+
+        // remove outline when focus!!!
+        &:focus {
+            outline: none;
+            // [Accessbility]
+            // for accessbility, we need to put some box-shadow
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: 3px solid $color-primary;
+        }
+
+        // focus:invalid sudo funciton
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        // new sudo. change the color of place holder
+        &::-webkit-input-placeholder {
+            color:lightblue;
+        }
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        // for .form__label's animation
+        transition: all .3s;
+    }
+
+    // "+" adjacent sibling (it must be very next line from input)
+    //  "~" all siblings
+
+    // when placeholder is visible, hide label
+    &__input:placeholder-shown + .form__label {
+        // color: transparent;
+        opacity: 0;
+        // to use animation, or transition above;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+
+    // -------- Radio Button
+    &__radio-group {
+        /*
+            Compared to display: inline, the major difference is that display: inline-block allows to set a width and height on the element.
+            Also, with display: inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not.
+            Compared to display: block, the major difference is that display: inline-block does not add a line-break after the element, so the element can sit next to other elements.
+        */
+        // one signle line and width management
+        display: inline-block;
+        width: 50%;
+    }
+
+    &__radio-input {
+
+        display: none;
+
+        // form sudo!!! [Important ]
+        // The structure is input, label > span
+        // We need to manipulate span from input
+        &:checked ~ .form__radio-label .form__radio-button::after{
+            opacity: 1;
+        } 
+        
+    }
+
+    &__radio-label {
+        font-size: $default-font-size;
+        // looks like link
+        cursor: pointer;
+        position: relative;
+        padding-left: 4rem;
+    }
+    // it is customized button
+    // because real radio button can not be managed by css
+    &__radio-button {
+
+        // just to give the control of width and hegit
+        //      because it <span> is inline
+        display: inline-block;
+        width: 3rem;
+        height: 3rem;
+        border: 5px solid $color-primary;
+        border-radius: 50%;
+        // when it has an position, it does not have to be specified as relatie again
+        position: absolute;
+        top: -.4rem;
+        left: 0;
+
+
+        &::after {
+            content: "";
+            // display: block;
+            height: 1.3rem;
+            width: 1.3rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $color-primary;
+            opacity: 0;
+            // transition for opcacity
+            transition: opacity .2s;
+
+        }
+
+    }
+
+}

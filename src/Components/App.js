@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import { Header } from './Common';
+import { Header, Footer } from './Common';
 import Main from './Main';
 
 export default () => {
@@ -8,6 +8,7 @@ export default () => {
         <Fragment>
             <Header />
             <Main />
+            <Footer />
         </Fragment>
     );
 }

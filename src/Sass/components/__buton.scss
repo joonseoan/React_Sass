@@ -1,4 +1,7 @@
 .btn {
+    // btn ==> button, not <a> element
+    &,
+    // <a> element only
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -9,23 +12,39 @@
         transition: all .2s;
         position: relative;
         font-size: $default-font-size;
+
+        // only for button 
+
+        //1) in default button has a border
+        border: none;
+        cursor: pointer;
+
+
+
     }
 
     &:hover {
         transform: translateY(-0.3rem);
         box-shadow: 0 .5rem 2rem rgba($color-black,.2);
-
+        // btn's child
         &::after {
+            content: "";
             transform: scaleX(1.6) scaleY(1.4);
+            // because of animation it is incrementally getting transparent
             opacity: 0;
         }
     }
     
-    &:active {
+    &:active,
+    &:focus  {
+        outline: none;
+        // when focus --> deleted outline
+        //  then for accessiblity, the ones below will haapen
         transform: translateY(-0.1rem);
-        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+        box-shadow: 0 .5rem 1rem rgba($color-black, .2);
     }
 
+    // btn's child
     &::after {
         content: "";
         display: inline-block;
@@ -39,10 +58,12 @@
         transition: all .4s;
     }
 
+
     &--white {
         background-color: $color-white;
         color: $color-grey-dark;
 
+        // btn's child
         &::after {
             background-color: $color-white;
         }

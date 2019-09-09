@@ -3,6 +3,7 @@
 *::before {
     margin: 0;
     padding: 0;
+    /* from document parent. it is content-box */
     box-sizing: inherit;
 }
 
@@ -18,5 +19,10 @@ body {
     /* only in css, in scss, in other scss files, it should be variable */
     color: #777777;
     padding: 3rem;
+    /* 
+        - content-box: This div has a width of 300px. But the full width is 300px + 20px (left and right border) + 60px (left and right padding) = 380px!
+        - border-box: Here, the full width is 300px, no matter what!
+    */
+    /* html does not specify the value */
     box-sizing: border-box;
 }
