@@ -1,0 +1,69 @@
+@import '../../Sass/abstracts/variables';
+
+.navigation {
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__button {
+
+        background-color: $color-white;
+        // it must cover "__background"
+        height: 7rem;
+        width: 7rem;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        border-radius: 50%;
+        z-index: 2000;
+    }
+
+    &__background {
+        // background-color: $color-white;
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        // to fix the position
+        // It is very similar to "absolute"
+        // We can define top /left /right/ bottom
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        // linear gradient: from one side to the other side
+        // radial gradient: from center to outside: (then, we do not need to define the direction)
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        z-index: 1000;
+
+
+    }
+
+    &__nav {
+        height: 100vh;
+        // do not need to specify width
+        // width: 100%;
+        
+        // It makes the nav have hidden at the top=right corner.
+        // position: fixed;
+        // top: 0;
+        // right: 0;
+        // at the middle between background and button
+        z-index: 1500;
+
+        
+
+    }
+
+    &__list {
+
+    }
+
+    &__items {
+
+    }
+
+    &__link {
+
+    }
+
+}
