@@ -4,6 +4,7 @@
 
     &__checkbox {
         display: none;
+
     }
 
     &__button {
@@ -17,6 +18,7 @@
         right: 6rem;
         border-radius: 50%;
         z-index: 2000;
+        box-shadow: 0 1rem 3rem rgba($color-black, .1);
     }
 
     &__background {
@@ -34,36 +36,119 @@
         // radial gradient: from center to outside: (then, we do not need to define the direction)
         background-image: radial-gradient($color-primary-light, $color-primary-dark);
         z-index: 1000;
+        
+        
+        // the circle must cover the entire screen. 
+        // to cover the entire screen
+        // transform: scale(80);
 
-
+        transition: transform .8s ease;
     }
 
     &__nav {
+        // [ It is for the child position which navigation__list
+        // entire height of the viewport
         height: 100vh;
-        // do not need to specify width
+        // do need to specify width
+        //  to get the entire navigation
+        // moved to sudo:checked
         // width: 100%;
         
-        // It makes the nav have hidden at the top=right corner.
-        // position: fixed;
-        // top: 0;
-        // right: 0;
+        // It makes the nav located at the top=right corner.
+        position: fixed;
+        top: 0;
+        right: 0;
         // at the middle between background and button
         z-index: 1500;
+        // position: relative;
 
-        
+        // to hide the ul element which is centered in view port
+        opacity: 0;
+        // to make it default withought the parent width
+        // width: 0;
 
+        transition: all .8s;
     }
 
     &__list {
-
+        // when body is a relative position,
+        //  we do not need to specify position: relative.
+        
+        // [ Important ]
+        // keep in mind over and over
+        //  it can be defined when the the parent has the height and width
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        list-style: none;
+        text-align: center;
+       
     }
 
     &__items {
+        // test it
+        // text-align: center;
+        margin: 1rem;
 
     }
 
     &__link {
 
+        &:link,
+        &:visited {
+            // to make "padding" and  transform: translateX(1rem) work
+            // anchor element is "inline"
+            display: inline-block;
+            padding: 1rem 2rem;
+            color: $color-white;
+            font-size: 3rem;
+            font-weight: 300;
+            text-decoration: none;
+            text-transform: uppercase;
+    
+            // control background image / background size
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+            
+            // Background-color is not controlled by background-size
+            // background-color: black;
+
+            // Please increase and decrease a number: background-size increases and decreases
+            // when the size value from 100 (half gradient) turns to be 200 (no gradient)
+            //  No gradient can be seen
+            background-size: 220%; 
+            transition: all .4s;
+            
+            span {
+                // to make it margin
+                display: inline-block;
+                margin-right: 1.5rem;
+            }
+        }
+
+        &:hover,
+        &:active {
+            // backgroun-position: height% width%
+            // when we use a single value, it is for width%
+            background-position: 100%;
+            color: $color-primary;
+            // it works only at the inline-block or bloxk
+            transform: translateX(1rem);
+        }
+
+
     }
+
+    // must use "~" because it is not the adjacent sibling.
+    &__checkbox:checked ~ .navigation__background {
+        transform: scale(80);
+        // width:100%
+    }
+
+    &__checkbox:checked ~ .navigation__nav {
+        width: 100%;
+        opacity: 1;
+    }
+
 
 }
