@@ -19,7 +19,65 @@
         border-radius: 50%;
         z-index: 2000;
         box-shadow: 0 1rem 3rem rgba($color-black, .1);
+
+        // to center the icon below..
+        text-align: center;
+        cursor: pointer;
+       
+        &:hover .navigation__icon::before {
+            top: -1rem;
+        }
+
+        &:hover .navigation__icon::after {
+            top: 1rem;
+        }
+   
     }
+
+    &__icon {
+
+        position: relative;
+        // margin-top: 3.5rem;
+        margin-top: 3.5rem;
+        // Main
+        &,
+        // Before main start
+        &::before,
+        // after main finish 
+        &::after {
+            // Creating inline element 
+            // need to switch to inline-block to gain width and height
+            // content: "";
+            // color: white;
+            display: inline-block;
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark-3;
+            
+        }
+        
+        &::before,
+        &::after {
+            // because contents are required only in before and after
+            content: "";
+            position: absolute;
+            left: 0;
+            // it is for howver above in the button element
+             transition: all .2s ease;
+        }
+
+        &::before {
+            // higher than span
+            top: -.8rem;
+        }
+
+        &::after {
+            // lower than span
+            top: .8rem;
+        }
+    }
+
+
 
     &__background {
         // background-color: $color-white;
@@ -169,5 +227,29 @@
         opacity: 1;
     }
 
+    // to make "X" icon when the checkbox checked
+    &__checkbox:checked + .navigation__button .navigation__icon {
+        // make navigation__icon's span transparent 
+        background-color: transparent;
+
+       
+    }
+    &__checkbox:checked + .navigation__button .navigation__icon::before {
+        
+        // background-color: transparent;
+
+        // rotate it
+        top: 0;
+        transform: rotate(135deg);
+        
+    }
+    &__checkbox:checked + .navigation__button .navigation__icon::after {
+        // make navigation__icon's span transparent 
+        // background-color: transparent;
+
+         // rotate it
+         top: 0;
+         transform: rotate(-135deg);
+    }
 
 }
