@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 import Navigation from './Navigation/Navigation';
-import { Header, Footer } from './Common';
+import { Header, Footer, Popup } from './Common';
 import Main from './Main';
 
 export default () => {
@@ -11,6 +11,7 @@ export default () => {
             <Header />
             <Main />
             <Footer />
+            <Popup />
         </Fragment>
     );
 }
