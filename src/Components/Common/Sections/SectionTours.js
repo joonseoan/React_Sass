@@ -3,7 +3,7 @@ import './SectionTours.scss';
 
 const SectionTours = props => {
     return(
-        <section className="section-tours">
+        <section className="section-tours" id="section-tours">
             <div className="u-center-text u-margin-bottom-big">
                 <h2 className="heading-secondary">
                     Most Popular Tours
@@ -42,7 +42,7 @@ const SectionTours = props => {
                                     <p className="card__price-value">$297</p>
                                 </div>
                                 {/* "a" element is one of the block elements */}
-                                <a href="#" className="btn btn--white">Buy now!</a>
+                                <a href="#popup" className="btn btn--white">Buy now!</a>
                             </div>
                         </div>
                     </div>
@@ -79,7 +79,7 @@ const SectionTours = props => {
                                     <p className="card__price-value">$597</p>
                                 </div>
                                 {/* "a" element is one of the block elements */}
-                                <a href="#" className="btn btn--white">Buy now!</a>
+                                <a href="#popup" className="btn btn--white">Buy now!</a>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@ const SectionTours = props => {
                                     <p className="card__price-value">$897</p>
                                 </div>
                                 {/* "a" element is one of the block elements */}
-                                <a href="#" className="btn btn--white">Buy now!</a>
+                                <a href="#popup" className="btn btn--white">Buy now!</a>
                             </div>
                         </div>
                     </div>
