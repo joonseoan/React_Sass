@@ -15,3 +15,37 @@
     transform: translate(-50%, -50%);
     
 }
+
+// Media Query Manager
+
+// Break Point
+/* 
+0 - 600 : phone
+600 - 900: Tablet (Portrait)
+900 - 1200: Tablet (Landscape)
+1200 - 1888: normal style
+1888 - + : Big Desktop
+*/
+
+// 1)
+@mixin respond-phone {
+    // @content is a kind of variable to enclose a block of codes
+    @media (max-width: 600px) { @content };
+    
+}
+
+// 2) Better way
+/* 
+    $Breakpoint argument choices:
+    - phone
+    - tab-port
+    - tab-land
+    - big-desktop
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 600px) { @content };
+    }
+}
+
+

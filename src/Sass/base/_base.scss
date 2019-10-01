@@ -1,0 +1,42 @@
+@import '../abstracts/mixins';
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    /* from document parent. it is content-box */
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    
+    // expample for the first media query in mixin
+    @include respond-phone {
+        font-size: 50%;
+    }
+
+    // expample for the second media query in mixin
+    @include respond(phone) {
+        font-size: 50%;
+    }
+
+
+}
+
+body {
+    font-family: "Lato", "sans-serif";
+    font-weight: 400;
+    /* distance between line by line */
+    line-height: 1.7;
+    /* only in css, in scss, in other scss files, it should be variable */
+    color: #777777;
+    padding: 3rem;
+    /* 
+        - content-box: This div has a width of 300px. But the full width is 300px + 20px (left and right border) + 60px (left and right padding) = 380px!
+        - border-box: Here, the full width is 300px, no matter what!
+    */
+    /* html does not specify the value */
+    box-sizing: border-box;
+}
