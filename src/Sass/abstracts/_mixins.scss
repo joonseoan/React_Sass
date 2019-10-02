@@ -18,6 +18,56 @@
 
 // Media Query Manager
 
+// 2) Better way
+/* 
+    $Breakpoint argument choices:
+    - phone
+    - tab-port
+    - tab-land
+    - big-desktop
+*/
+
+/* 
+   [In Media query, em and rem does not affected by
+    font size in html!!!
+
+    In is decided by browser's default font-size
+
+    rem is not working in some browsers.
+    Therefore, we should use ed
+
+    em: 600 / 16 = 375 
+    rem
+
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content }; // 600px
+    }
+
+    @if $breakpoint == tap-port {
+        @media (max-width: 56,25em) { @content }; // 900px
+    }
+
+    @if $breakpoint == tap-land {
+        @media (max-width: 75em) { @content }; // 1200px
+    }
+
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) { @content }; // 1800px
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 // Break Point
 /* 
 0 - 600 : phone
@@ -28,24 +78,8 @@
 */
 
 // 1)
-@mixin respond-phone {
-    // @content is a kind of variable to enclose a block of codes
-    @media (max-width: 600px) { @content };
-    
-}
-
-// 2) Better way
-/* 
-    $Breakpoint argument choices:
-    - phone
-    - tab-port
-    - tab-land
-    - big-desktop
-*/
-@mixin respond($breakpoint) {
-    @if $breakpoint == phone {
-        @media (max-width: 600px) { @content };
-    }
-}
-
+// @mixin respond-phone {
+//     // @content is a kind of variable to enclose a block of codes
+//     @media (max-width: 600px) { @content }; 
+// }
 

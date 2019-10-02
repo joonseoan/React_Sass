@@ -11,17 +11,46 @@
 
 html {
     font-size: 62.5%;
-    
-    // expample for the first media query in mixin
-    @include respond-phone {
-        font-size: 50%;
-    }
 
+
+    //  [ IMPORTANT ]: When we display value with value
+    //  we need to specify the the bigger media query size 
+    //      except for the largest one which has min-width value
+    // 2)
     // expample for the second media query in mixin
-    @include respond(phone) {
-        font-size: 50%;
+    // @include respond(phone) {
+    //     font-size: 50%;
+    // }
+    
+    @include respond(tap-land) {
+        font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%
     }
 
+    // Same as phone .... --> we can delete the one above
+    @include respond(tap-port) {
+        font-size: 50%;  // 1 rem = 8px, 8/16 = 50%
+    }
+
+    @include respond(phone) {
+        font-size: 30%; 
+    }
+
+
+
+    @include respond(big-desktop) {
+        font-size: 75%; // 1 rem = 12 px,  12/16 = 75%
+    }
+
+
+    
+    // 1) 
+    // expample for the first media query in mixin
+    // without variable
+    // @include respond-phone {
+    //     font-size: 50%;
+    // }
+
+    
 
 }
 
