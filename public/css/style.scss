@@ -1,3 +1,5 @@
+@import '../../src/Sass/abstracts/mixins';
+
 *,
 *::after,
 *::before {
@@ -7,22 +9,67 @@
     box-sizing: inherit;
 }
 
-.html {
+
+html {
     font-size: 62.5%;
+
+
+    //  [ IMPORTANT ]: When we display value
+    //  we need to specify the the bigger media query size 
+    //      except for the largest one which has min-width value
+    
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%
+    }
+
+    // Same as phone .... --> we can delete the one above
+    @include respond(tab-port) {
+        font-size: 50%;  // 1 rem = 8px, 8/16 = 50%
+    }
+
+    // @include respond(phone) {
+    //     font-size: 30%; 
+    // }
+
+    @include respond(big-desktop) {
+        font-size: 75%; // 1 rem = 12 px,  12/16 = 75%
+    }
+
+    // 2)
+    // expample for the second media query in mixin
+    // @include respond(phone) {
+    //     font-size: 50%;
+    // }
+    
+    // 1) 
+    // expample for the first media query in mixin
+    // without variable
+    // @include respond-phone {
+    //     font-size: 50%;
+    // }
+
+    
+
 }
 
-.body {
+body {
     font-family: "Lato", "sans-serif";
     font-weight: 400;
     /* distance between line by line */
     line-height: 1.7;
     /* only in css, in scss, in other scss files, it should be variable */
     color: #777777;
-    padding: 3rem;
     /* 
-        - content-box: This div has a width of 300px. But the full width is 300px + 20px (left and right border) + 60px (left and right padding) = 380px!
-        - border-box: Here, the full width is 300px, no matter what!
+    - content-box: This div has a width of 300px. But the full width is 300px + 20px (left and right border) + 60px (left and right padding) = 380px!
+    - border-box: Here, the full width is 300px, no matter what!
     */
     /* html does not specify the value */
     box-sizing: border-box;
-} 
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+
+
+}

@@ -28,44 +28,37 @@
 */
 
 /* 
-   [In Media query, em and rem does not affected by
-    font size in html!!!
+   [In Media query, em and rem do affected by
+    font size in html!!! In is decided by browser's default font-size
 
-    In is decided by browser's default font-size
+    However, rem is not working in some browsers.
+    Therefore, we should use em
 
-    rem is not working in some browsers.
-    Therefore, we should use ed
-
-    em: 600 / 16 = 375 
-    rem
+    em: 600px / 16 = 37.5 
 
 */
+
+
+// Learing order: Base + Typography > general layout + grid 
+
 @mixin respond($breakpoint) {
+    
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) { @content }; // 1200px
+    }
+    
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) { @content }; // 900px
+    }
+
     @if $breakpoint == phone {
         @media (max-width: 37.5em) { @content }; // 600px
-    }
-
-    @if $breakpoint == tap-port {
-        @media (max-width: 56,25em) { @content }; // 900px
-    }
-
-    @if $breakpoint == tap-land {
-        @media (max-width: 75em) { @content }; // 1200px
     }
 
     @if $breakpoint == big-desktop {
         @media (min-width: 112.5em) { @content }; // 1800px
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 // Break Point

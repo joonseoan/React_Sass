@@ -17,12 +17,12 @@ const SectionBooking = props => {
                             <div className="form__group">
                                 <input type="text" id="name" className="form__input" placeholder="Full Name" required />
                                 {/* for="name" if the label is clicked, the full name input will be focused */}
-                                <label for="name" className="form__label">Full Name</label>
+                                <label htmlFor="name" className="form__label">Full Name</label>
                             </div>
                             <div className="form__group">
                                 <input type="email" id="email" className="form__input" placeholder="Email Address" required />
                                 {/* for="name" if the label is clicked, the full name input will be focused */}
-                                <label for="email" className="form__label">Email Address</label>
+                                <label htmlFor="email" className="form__label">Email Address</label>
                             </div>
                             {/* 
                                 [Important] : form__group has margin-bottom: 2rem
@@ -36,14 +36,14 @@ const SectionBooking = props => {
                             <div className="form__group u-margin-bottom-medium">
                                 <div className="form__radio-group">
                                     <input type="radio" className="form__radio-input" id="small" name="size" />
-                                    <label for="small" className="form__radio-label" >
+                                    <label htmlFor="small" className="form__radio-label" >
                                         <span className="form__radio-button"></span>
                                         Small tour group
                                     </label>
                                 </div>
                                 <div className="form__radio-group">
                                     <input type="radio" className="form__radio-input" id="large" name="size" />
-                                    <label for="large" className="form__radio-label" >
+                                    <label htmlFor="large" className="form__radio-label" >
                                         <span className="form__radio-button"></span>
                                         Large tour group
                                     </label>
