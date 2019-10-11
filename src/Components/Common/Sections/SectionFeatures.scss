@@ -1,5 +1,5 @@
 @import '../../../Sass/abstracts/variables';
-// @import '../../../Sass/base/typography';
+@import '../../../Sass/abstracts/mixins';
 
 .section-features {
     padding: 20rem 0;
@@ -28,6 +28,10 @@
     & > * {
         transform: skewY(7deg);
     }
+
+    @include respond(tab-port) {
+        padding: 10rem 0;
+    }
     
     .feature-box {
 
@@ -39,6 +43,10 @@
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
         transition: all .2s;
 
+        @include respond(tab-port) {
+            padding: 2rem;
+        }
+
         &__icon {
             font-size: 6rem;
             margin-bottom: .5rem;
@@ -47,6 +55,10 @@
              --webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+
+            @include respond(tab-port) {
+                padding: 0;
+            }
     
         }
 

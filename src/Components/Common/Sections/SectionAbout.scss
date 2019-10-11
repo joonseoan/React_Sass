@@ -6,6 +6,7 @@
 
 // button
 @import '../../../Sass/components/_buton';
+@import '../../../Sass//abstracts/mixins';
 
 // composition
 // @import '../../../Sass/Components/composition.scss';
@@ -20,6 +21,11 @@
     // 20 vh is 80vh distance from top
     // -20vh is moving to top from current vh position chage
     margin-top: -20vh;
+    
+    @include respond(tab-port) {
+        padding: 20rem 0;
+    }
+
     .composition {
         
         position: relative;
@@ -33,8 +39,18 @@
             z-index: 1;
             transition: all .2s;
             
-            // outline-offset must be se in the parent class
+            // outline-offset must be set in the parent class
             outline-offset: 2rem;
+
+            @include respond(tab-port) {
+                // from left side because it is 100% width
+                float: left;
+                // back to relative
+                position: relative; 
+                width: 33.33333333%;
+                // 3rem for blur
+                box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
+            }
 
             // position setup for each photo
             // Just remember that --p1, --p2, --p3 are in same elements as __photo
@@ -42,17 +58,35 @@
             &--p1 {
                 left: 0;
                 top: -2rem;
+
+                @include respond(tab-port) {
+                    top: 0;
+                    transform: scale(1.2);
+                }
             }
 
             &--p2 {
                 // start from right side
                 right: 0;
                 top: 2rem;
+
+                @include respond(tab-port) {
+                    top: -1rem;
+                    // translate === translateX
+                    transform: scale(1.3);
+                    z-index: 100;
+                }
             }
 
             &--p3 {
                 left: 20%;
                 top: 10rem;
+
+                @include respond(tab-port) {
+                    top: 1rem;
+                    left: 0;
+                    transform: scale(1.1);
+                }
             }
 
             // each image has same hover value

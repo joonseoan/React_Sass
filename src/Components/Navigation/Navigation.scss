@@ -1,4 +1,5 @@
 @import '../../Sass/abstracts/variables';
+@import '../../Sass/abstracts/mixins';
 
 .navigation {
 
@@ -14,8 +15,20 @@
         height: 7rem;
         width: 7rem;
         position: fixed;
+
         top: 6rem;
         right: 6rem;
+
+        @include respond(tab-port) {
+            top: 3rem;
+            right: 3rem;
+        }
+
+        @include respond(phone) {
+            top: 2rem;
+            right: 2rem;
+        }
+
         border-radius: 50%;
         z-index: 2000;
         box-shadow: 0 1rem 3rem rgba($color-black, .1);
@@ -77,19 +90,28 @@
         }
     }
 
-
-
     &__background {
         // background-color: $color-white;
         height: 6rem;
         width: 6rem;
         border-radius: 50%;
+
         // to fix the position
         // It is very similar to "absolute"
         // We can define top /left /right/ bottom
         position: fixed;
         top: 6.5rem;
         right: 6.5rem;
+
+        @include respond(tab-port) {
+            top: 3.5rem;
+            right: 3.5rem;
+        }
+
+        @include respond(phone) {
+            top: 2.5rem;
+            right: 2.5rem;
+        }
         // linear gradient: from one side to the other side
         // radial gradient: from center to outside: (then, we do not need to define the direction)
         background-image: radial-gradient($color-primary-light, $color-primary-dark);

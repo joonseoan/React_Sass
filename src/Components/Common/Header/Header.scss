@@ -18,6 +18,13 @@
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     position: relative;
 
+
+    @include respond(phone) {
+        // because angle is too steep compared to the original one
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
     // we can use .header__logo-box 
     &__logo-box {
         position: absolute;

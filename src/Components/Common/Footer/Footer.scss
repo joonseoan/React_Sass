@@ -1,4 +1,6 @@
 @import '../../../Sass/abstracts/variables';
+@import '../../../Sass//abstracts/mixins';
+
 // @import '../../../Sass/layout/grid';
 
 .footer {
@@ -7,10 +9,22 @@
     padding: 10rem 0;
     font-size: 1.4rem;
     
+    @include respond(tab-port) {
+        padding: 8rem 0;
+    }
+
+    // @include respond(tab-port) {
+    //     padding: 6rem 0;
+    // }
+
     &__logo-box {
         // img element is an "inline" element!!
         text-align: center;
-        margin-bottom: 6rem;
+        margin-bottom: 8rem;
+
+        @include respond(phone) {
+            margin-bottom: 6rem;
+        }
     }
 
     &__logo {
@@ -23,6 +37,11 @@
         padding-top: 2rem;
         // to make the line length same as the one of items below 
         display: inline-block;
+
+        @include respond(tab-port) {
+            width: 100%;
+            text-align: center;
+        }
         
     }
 
@@ -72,6 +91,11 @@
         // it applies to any block element.
         width: 80%;
         float: right;
+
+        @include respond(tab-port) {
+            width: 100%;
+            float: none;
+        }
     }
 
 }

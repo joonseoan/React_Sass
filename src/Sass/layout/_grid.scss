@@ -4,26 +4,65 @@
 .row {
 
     // must use rem for responsive
-    // max-width: when the space is engough, it will be '114red'
+    // max-width: when the space is engough, it will be '114rem'
     //      but if the space is not enough, it will be adaptive.
-    max-width: $color-width;
+    max-width: $color-width; // 114 rem
+    @include respond(tab-port) {
+        max-width: 50rem;
+        padding: 0 3rem;
+
+    }
+
     // background-color: #eeeeee;
     // "auto" applies for "block" like <div> <section> and etc
     margin: 3rem auto;
 
     // 2)
     // apply margin-buttom above except for the last-child
+    // When we have multiple rows
     &:not(:last-child) {
-        margin-bottom: $gutter-vertical;        
+        margin-bottom: $gutter-vertical; 
+        @include respond(tab-port) {
+            margin-bottom: $gutter-vertical-small;
+        }    
     }
     
     @include clearfix;
 
+        
+
+    //  [ IMPORTANT ]
+    // grab the elements which have alt="logo" attributes
+    // [alt="logo"] { }
+
+    // grab the elements which have a class attribute
+    // that starts value with "col-"
+    // [class^="col-"] {}
+
+    // grab the elements which have a class attribute
+    // that ends value with "col-"
+    // [class$="col-"] {}
+
+    // grab the elements which have a class attribute
+    // that includes value with "col-"
+    // [class*="col-"] {}
     [class^="col-"] {
         // background-color: orangered;
         float: left;
         &:not(:last-child) {
-            margin-right: $gutter-horizontal; 
+            margin-right: $gutter-horizontal;
+
+            @include respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+        }
+
+        // To all "col-" classes
+        @include respond(tab-port) {
+            // !important highest priority
+            width: 100% !important;
+           
         }
     }
     
@@ -42,24 +81,6 @@
         margin-bottom: 0px;
     } */
 
-    
-
-    //  [ IMPORTANT ]
-    // grab the elements which have alt="logo" attributes
-    // [alt="logo"] { }
-
-    // grab the elements which have a class attribute
-    // that starts value with "col-"
-    // [class^="col-"] {}
-
-    // grab the elements which have a class attribute
-    // that ends value with "col-"
-    // [class$="col-"] {}
-
-    // grab the elements which have a class attribute
-    // that includes value with "col-"
-    // [class*="col-"] {}
-
     // [class^="col-"] {
     //     background-color: orangered;
     //     float: left;
@@ -71,7 +92,6 @@
     // .col-1-of-2 {
 
     //     width: calc((100% - #{ $gutter-horizontal }) / 2);
-    //     // use grabbing [] attribute above 
     //     // background-color: orangered;
         
     //     // // will generage 0px height
