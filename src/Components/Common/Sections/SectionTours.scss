@@ -26,6 +26,7 @@
         // height: 50rem;
         // transition: all .8s;
         position: relative;
+
         // position "absolute" below destroys height in card
         //  therefore we need to define same height over here.
         // It is like float that destroys height!!!
@@ -240,18 +241,69 @@
             font-size: 6rem;
             font-weight: 100;
         }
+
+        // We are not using 3D over here
+        @include respond(tab-port){
+            // must use same or bigger height as the children have
+            // The reason we defined height 
+            //  is because we need to make front and back sides
+            //  have same same sizes.
+            
+            // Automatically enclose all childrens
+            height: auto;
+            // for entire rectangle including backside 
+            border-radius: 3px;
+            // to fill the gap from clip-path
+            background-color: $color-white;
+            box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+           
+            &__side {
+                
+                // height: 52rem;
+                // Automatically fit into the elements
+                height: auto;
+                position: relative;
+                // border-radius: 3px;
+                box-shadow: none;
+
+                // Need to specify this because the default value above has been defined
+                &--back {
+                    // We need the --back class to be faced with upfront. 
+                    transform: rotateY(0deg);
+                    // transform: rotateY(180deg);
+
+                    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+                }
+
+            }
+
+            &__details {
+                padding: 1rem 3rem;
+            }
+
+            &__cta {
+                padding: 7rem 4rem 4rem 4rem;
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: translate(0);
+                // transform: translate(-50%, -50%);
+                width: 100%;
+                // // inheritance!
+                // text-align: center;
+            }
+
+            &__price-box {
+                margin-bottom: 1rem;
+            }
+
+            &__price-value {
+                font-size: 4rem;
+                // font-weight: 100;
+            }
+
+        }
     
     }       
     
-    // when card rotates, card_side also rotates
-    // close side--front
-    .card:hover .card__side--front {
-        // moving in other direction!
-        transform: rotateY(-180deg);
-    }
-    // open side--back
-    .card:hover .card__side--back {
-        transform: rotateY(0deg);
-    }
-
 }
