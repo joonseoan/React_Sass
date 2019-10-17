@@ -32,12 +32,46 @@ const SectionAbout = props => {
                     {/* block */}
                     <div className="composition">
                         {/* 
+                            2) 
+                            Image selection in terms of width
+                            So by using "300w" and "1000w", html informs the browser image's width info
+                            The broser will automatically select the best image, either of both specified below.
+                        */}
+                        <img srcSet="/img/nat-1.jpg 300w, /img/nat-1-large.jpg 1000w"
+                            // Browser will select either of both above
+
+                            // We just need to inform the relative value of the picture.
+                            // 16vw : relative value: 141 / 900 = 16vw
+                            // 24vw : relative value: 141 / 600 = 24vw
+                            // 260px : default size, when the browser has big desktop screen.
+                            sizes="(max-width: 900px) 16vw, (max-width: 600px) 24vw, 260px"
+                            alt="photo_1"
+                            className="composition__photo composition__photo--p1"
+                            // If the browser does not understand the srcSet above,
+                            //  it alternatively will try to understand below.
+                            src="/img/nat-1-large.jpg"
+                        />
+
+                        <img srcSet="/img/nat-2.jpg 300w, /img/nat-2-large.jpg 1000w"
+                            sizes="(max-width: 900px) 16vw, (max-width: 600px) 24vw, 260px"
+                            alt="photo_2"
+                            className="composition__photo composition__photo--p2"
+                            src="/img/nat-2-large.jpg"
+                        />
+                        <img srcSet="/img/nat-3.jpg 300w, /img/nat-3-large.jpg 1000w"
+                            sizes="(max-width: 900px) 16vw, (max-width: 600px) 24vw, 260px"
+                            alt="photo_3"
+                            className="composition__photo composition__photo--p3"
+                            src="/img/nat-3-large.jpg"
+                        />
+                        {/* 1) */}
+                        {/* 
                             composition__photo: element
                             composition__photo--p1 : modifier
                         */}
-                        <img src="/img/nat-1-large.jpg" alt="photo1" className="composition__photo composition__photo--p1" />
+                       {/*  <img src="/img/nat-1-large.jpg" alt="photo1" className="composition__photo composition__photo--p1" />
                         <img src="/img/nat-2-large.jpg" alt="photo2" className="composition__photo composition__photo--p2" />
-                        <img src="/img/nat-3-large.jpg" alt="photo3" className="composition__photo composition__photo--p3" />
+                    <img src="/img/nat-3-large.jpg" alt="photo3" className="composition__photo composition__photo--p3" /> */}
                     </div>
                 </div>
             </div>
