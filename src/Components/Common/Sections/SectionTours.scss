@@ -19,6 +19,7 @@
             The perspective property defines how far the object is away from the user. So, a lower value will result in a more intensive 3D effect than a higher value.
             When defining the perspective property for an element, it is the CHILD elements that get the perspective view, NOT the element itself.     
         */
+
         perspective: 150rem;
         // working in firefox browser
         -moz-perspective: 150rem;
@@ -228,13 +229,11 @@
             // text-align: center;
             margin-bottom: 8rem;
             color: $color-white;
-
         }
 
         &__price-only {
             font-size: 1.5rem;
             text-transform: uppercase;
-
         }
 
         &__price-value {
@@ -242,8 +241,19 @@
             font-weight: 100;
         }
 
+                // when card rotates, card_side also rotates
+        // close side--front
+        &:hover .card__side--front {
+            // moving in other direction!
+            transform: rotateY(-180deg);
+        }
+        // open side--back
+        &:hover .card__side--back {
+            transform: rotateY(0deg);
+        }
+
         // We are not using 3D over here
-        @include respond(tab-port){
+        @include respond(tab-port) {
             // must use same or bigger height as the children have
             // The reason we defined height 
             //  is because we need to make front and back sides
@@ -302,8 +312,12 @@
                 // font-weight: 100;
             }
 
+            &:hover .card__side--front {
+                transform: rotateY(0);
+            }
+
         }
     
-    }       
+    }    
     
 }
