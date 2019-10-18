@@ -54,7 +54,24 @@
         transform: translate(-50%, -50%) scale(0);
         transition: all, .2s;
 
+        @media (max-width: 700px) {
+            display: inline-block;
+        }
 
+    }
+
+    &__title--top {
+        position: relative;
+        @media (max-width: 700px) {
+            position: absolute;
+            top: 8%;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 375px) {
+            top: 6%;
+            font-size: 2rem;
+        }
     }
 
     &__left {
@@ -66,6 +83,19 @@
         // use when block and inline block are required
         // float: left;
         width: 33.3333333%;
+        vertical-align: middle;
+
+        @media (max-width: 1300px) {
+            padding-left: 3rem;
+        }
+
+        @media (max-width: 700px) {
+            display: inline-block;
+            width: 100%;
+            background-size: cover;
+            padding-left: 5rem;
+            margin-top: 17rem;
+        }
     }
 
     &__right {
@@ -77,14 +107,39 @@
         width: 66.6666667%;
         vertical-align: middle;
         padding: 3rem 5rem;
+
+        @media (max-width: 700px) {
+            width: 100%;
+        }
     }
 
     &__img {
 
         display: block;
-        width: 100%;
+        width: 100%;    
+        
+        @include respond(tab-port) {
+            &:not(:last-child) {
+                margin-bottom: 3rem;  
+            }
+        }
 
+        @media (max-width: 700px) {
+            width: 35%;
+            height: 2%;
+            vertical-align: middle;
+            display: inline-block;
+
+            border-radius: 3px;
+           
+            &:not(:last-child) {
+                margin-bottom: 0;  
+                margin-right: 3rem;
+            }  
+        }
     }
+
+
 
     &__text {
         font-size: 1.4rem;
@@ -145,8 +200,5 @@
         }
         
     }
-
-
-
     
 }

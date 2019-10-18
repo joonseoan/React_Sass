@@ -19,8 +19,17 @@ const SectionStories = props => {
             </div>
             <div className="row">
                 <div className="story">
+
                     <figure className="story__shape">
-                        <img src="/img/nat-8.jpg" alt="person on a tour" className="story__img" />
+                        <img 
+                            srcSet="/img/nat-8.jpg 2000w"
+                            sizes="(max-width: 900px) 14vw, (max-width: 900px) 20vw, 150px"
+                            alt="person on a tour" 
+                            className="story__img" 
+                            src="/img/nat-8.jpg"
+                        />
+                        {/* 1) without resolution setting */}
+                        {/* <img src="/img/nat-8.jpg" alt="person on a tour" className="story__img" /> */}
                         <figcaption className="story__caption">Mary Smith</figcaption>
                     </figure>
                     <div className="story__text">
@@ -32,7 +41,14 @@ const SectionStories = props => {
             <div className="row">
                 <div className="story">
                     <figure className="story__shape">
-                        <img src="/img/nat-9.jpg" alt="person on a tour" className="story__img" />
+                        <img 
+                            srcSet="/img/nat-9.jpg 2000w"
+                            sizes="(max-width: 900px) 14vw, (max-width: 900px) 20vw, 150px"
+                            alt="person on a tour" 
+                            className="story__img" 
+                            src="/img/nat-9.jpg"
+                        />
+                        {/* <img src="/img/nat-9.jpg" alt="person on a tour" className="story__img" /> */}
                         <figcaption className="story__caption">Michael Jose</figcaption>
                     </figure>
                     <div className="story__text">
