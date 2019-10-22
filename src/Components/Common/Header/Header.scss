@@ -5,20 +5,80 @@
 
 .header {
     
-    height: 95vh;    
+    height: 85vh;    
     background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light, 0.8),
         rgba($color-primary-dark, 0.8)), 
-        url(/img/hero.jpg);
+
+        // In normal environment, use a lower resolution picture
+        // [ For lower resoltion device ] 
+        url(/img/hero-small.jpg);
     background-size: cover;
     background-position: top;
+
+    // It is not working in Safari
     // shold be first (not working IE / Edge)
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     position: relative;
 
+    // Remind that it is always prior to the same attributes above
+    // In this case, we can put any value in polygone
+    @supports (clip-path: polygon(0 0)) or (-wbkit-clip-path: polygon(0, 0)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        // Overriding 85vh above
+        height: 95vh;
+    }
 
+    // [ 3. For higher resolution - only depending on device's resolution
+    //      and screen size ]
+    // device's resolution : more than 192dpi and the screen size more than 600px
+    
+    // "," below is "OR"
+
+    // Safari does not support "min-resolution"
+    // Therefore we need to put "min-resolution"
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    // Safari version
+    // "2" means that dpr 1.0, 2.0, or 3.o in the browser.
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+        (min-width: 125em) {
+    // @media (min-resolution: 192dpi) and (min-width: 600px),
+    // (min-width: 2000) {
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-secondary-light, 0.8),
+            rgba($color-secondary-dark, 0.8)), 
+            url(/img/hero.jpg);
+    
+    }
+
+    // [ 2. For higher resolution  - depending only on screen size
+    // Challenge resolution DRR 1.0 Orange Background 
+    // Higher resolution picture 
+    // @media (min-width: 2000px) {
+    //     background-image: linear-gradient(
+    //         to right bottom,
+    //         rgba($color-secondary-light, 0.8),
+    //         rgba($color-secondary-dark, 0.8)), 
+    //         url(/img/hero.jpg);
+    
+    // }
+    
+    // [ 1. For higher resolution - only depending on device's resolution ]
+    // Select the picture depending on the device resolution
+    // 192 dpi is a standard resolution of apple's Latina Screen
+    // @media (min-resolution: 192dpi) {
+    //     background-image: linear-gradient(
+    //         to right bottom,
+    //         rgba($color-secondary-light, 0.8),
+    //         rgba($color-secondary-dark, 0.8)), 
+    //         url(/img/hero.jpg);
+    
+    // }
+    
     @include respond(phone) {
         // because angle is too steep compared to the original one
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);

@@ -82,10 +82,10 @@
         }
 
         &__shape {
-            width: 15rem;
+            width: 13rem;
             // must use overflow to prevent the picture sticks out of the "widh"
             overflow: hidden;
-            height: 15rem;
+            height: 13rem;
             float: left;
             // float: right;
 
@@ -101,14 +101,39 @@
             -webkit-shape-outside: circle(50% at 50% 50%);         
             shape-outside: circle(50% at 50% 50%);
 
+            // It is not supported Safarri
             // Then we can use clip path
+            // It is for shape
             -webkit-clip-path: circle(50% at 50% 50%);
             clip-path: circle(50% at 50% 50%);
 
             // When float exists, we should use transform istead of margin
             transform: translateX(-3rem) skewX(12deg);
             
+            // In order to safari.
+            border-radius: 50%;
             position: relative;
+
+            // Important!!!!!
+            // We can use it the image is larger than the space of the html blcok.
+            // For instance, when we are not able to control image size that is caused by
+            //  original image size, we can use it to cut off the pictures outside the defined space size.
+            // Also, we can ue background-size, and object-fit?? as well with overflow: hidden
+            overflow: hidden;
+            
+            @supports (-webkit-clip-path: circle(0 0)) or (clip-path: circle(0 0)) {
+                -webkit-clip-path: circle(50% at 50% 50%);
+                clip-path: circle(50% at 50% 50%);
+
+                // [ IMPORTANT! ]
+                // Under the condition above in "supports", we can use the outline circle as well.
+                -webkit-shape-outside: circle(50% at 50% 50%);         
+                shape-outside: circle(50% at 50% 50%);
+
+                border-radius: none;
+
+
+            }
 
             @include respond(phone) {
                 transform: translateX(-3rem) skewX(0);
@@ -125,6 +150,8 @@
             transition: all .5s ease;
             // when two objects are overlayed
             // in order to prevent the weried error
+       
+       
             backface-visibility: hidden;
 
 

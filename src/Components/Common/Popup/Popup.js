@@ -7,6 +7,7 @@ const Popup = props => {
         <div className="popup" id="popup">
             <div className="popup__content">
                 <div className="popup__left">
+                
                     {/* <img 
                         srcSet="/img/nat-8.jpg 2000w"
                         sizes="(max-width: 1200px) 25vw, (max-width: 900px) 25vw, "

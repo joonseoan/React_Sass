@@ -53,7 +53,13 @@
                 The back face of an element is a mirror image of the front face being displayed.
                 This property is useful when an element is rotated. It lets you choose if the user should see the back face or not.
             */
-            backface-visibility: hidden;
+
+            // it is supported only by the modern browser.
+            @supports (-webkit-backface-visibility: hidden) or (backface-visibility: hidden) {
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            // @support
 
             border-radius: 3px;
             // background picture in "&__pcitre" will destroy the radius.

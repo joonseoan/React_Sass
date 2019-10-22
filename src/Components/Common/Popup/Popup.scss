@@ -28,6 +28,21 @@
     visibility: hidden;
     transition: all .3s;
 
+    // [The most of browser does not support the backdrop-filter.
+    // Therefore, we should ask like the onew below
+    // When popup is generated, the backgroun color is blure
+    // --webkit-backdrop-filter: blur(10px);
+    // backdrop-filter: blur(10px);
+    // background-color: rgba($color-black, .5);
+
+    // Ask the function is supported 
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        --webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background-color: rgba($color-black, .5);
+
+    }
+
     &__content {
 
         // it has a transform to be centered

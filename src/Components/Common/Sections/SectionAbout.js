@@ -44,7 +44,7 @@ const SectionAbout = props => {
                             // 16vw : relative value: 141 / 900 = 16vw
                             // 24vw : relative value: 141 / 600 = 24vw
                             // 260px : default size, when the browser has big desktop screen.
-                            sizes="(max-width: 900px) 16vw, (max-width: 600px) 24vw, 260px"
+                            sizes="(max-width: 56.25em) 16vw, (max-width: 37.5em) 24vw, 260px"
                             alt="photo_1"
                             className="composition__photo composition__photo--p1"
                             // If the browser does not understand the srcSet above,
@@ -53,13 +53,13 @@ const SectionAbout = props => {
                         />
 
                         <img srcSet="/img/nat-2.jpg 300w, /img/nat-2-large.jpg 1000w"
-                            sizes="(max-width: 900px) 16vw, (max-width: 600px) 24vw, 260px"
+                            sizes="(max-width: 56.25em) 16vw, (max-width: 37.5em) 24vw, 260px"
                             alt="photo_2"
                             className="composition__photo composition__photo--p2"
                             src="/img/nat-2-large.jpg"
                         />
                         <img srcSet="/img/nat-3.jpg 300w, /img/nat-3-large.jpg 1000w"
-                            sizes="(max-width: 900px) 16vw, (max-width: 600px) 24vw, 260px"
+                            sizes="(max-width: 56.25em) 16vw, (max-width: 37.5em) 24vw, 260px"
                             alt="photo_3"
                             className="composition__photo composition__photo--p3"
                             src="/img/nat-3-large.jpg"
