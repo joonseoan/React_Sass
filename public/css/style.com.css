@@ -1,0 +1,61 @@
+/* 
+    $Breakpoint argument choices:
+    - phone
+    - tab-port
+    - tab-land
+    - big-desktop
+*/
+/* 
+   [In Media query, em and rem do affected by
+    font size in html!!! In is decided by browser's default font-size
+
+    However, rem is not working in some browsers.
+    Therefore, we should use em
+
+    em: 600px / 16 = 37.5 
+
+*/
+/* 
+0 - 600 : phone
+600 - 900: Tablet (Portrait)
+900 - 1200: Tablet (Landscape)
+1200 - 1888: normal style
+1888 - + : Big Desktop
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* from document parent. it is content-box */
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  font-family: "Lato", "sans-serif";
+  font-weight: 400;
+  /* distance between line by line */
+  line-height: 1.7;
+  /* only in css, in scss, in other scss files, it should be variable */
+  color: #777777;
+  /* 
+    - content-box: This div has a width of 300px. But the full width is 300px + 20px (left and right border) + 60px (left and right padding) = 380px!
+    - border-box: Here, the full width is 300px, no matter what!
+    */
+  /* html does not specify the value */
+  box-sizing: border-box;
+  padding: 3rem; }
+  @media (max-width: 56.25em) {
+    body {
+      padding: 0; } }
