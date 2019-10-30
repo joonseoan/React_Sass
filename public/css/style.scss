@@ -71,3 +71,9 @@ body {
         padding: 0;
     }
 }
+// Change background color and font color 
+//  when the user selects texts
+::selection {
+    background-color: #55c57a;
+    color: white
+}

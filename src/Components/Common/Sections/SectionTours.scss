@@ -258,8 +258,18 @@
             transform: rotateY(0deg);
         }
 
+        // 2)
+        @media only screen and (max-width: 56.25em),
+            // or blocking hover function
+            //  then it automatically blocks field values inside of hover
+            //  for mobile device.
+            only screen and (hover: none) {
+        
+        // 1)
         // We are not using 3D over here
-        @include respond(tab-port) {
+        // [!important] 
+        // We can't use a function when we get to use or / and combination
+        // @include respond(tab-port) {
             // must use same or bigger height as the children have
             // The reason we defined height 
             //  is because we need to make front and back sides
